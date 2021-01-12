@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./app/Dockerfile
       buildContext: .
-      tag: ${CICD_GIT_REPO_NAME}/api-test:${CICD_GIT_COMMIT}
+      tag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}:${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
       pushRemote: true
       registry: 10.20.0.73:5443
     env:
@@ -35,7 +35,7 @@ stages:
         web.type: flask
         # 10.50.1.63:5443/app/${CICD_GIT_REPO_NAME}-web
         web.image: ${CICD_GIT_REPO_NAME}/api-test
-        web.tag: ${CICD_GIT_COMMIT}
+        web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         checkmarx.enabled: true
         newman.enabled: true
         apieditor.enabled: false
