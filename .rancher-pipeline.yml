@@ -38,6 +38,7 @@ stages:
         web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         checkmarx.enabled: true
         newman.enabled: true
+        webinspect.enabled: true
         apieditor.enabled: false
         codeServer.enabled: true
         codeServer.PASSWORD: happybear
