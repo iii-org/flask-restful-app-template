@@ -39,32 +39,5 @@ stages:
         checkmarx.enabled: true
         newman.enabled: true
         webinspect.enabled: true
-        apieditor.enabled: false
-        codeServer.enabled: true
-        codeServer.PASSWORD: happybear
 
-#- name: Run webinspect-runner
-#  steps:
-#  - runScriptConfig:
-#      image: iiiorg/webinspect-runner
-#      shellScript: cd /usr/src/app; node /usr/src/app/app.js
-#    env:
-#      inspect_url: http://apitest.p-fppvh.10.20.0.80.xip.io/serverinfo
-#      project_name: ${CICD_GIT_REPO_NAME}
-#      git_branch: ${CICD_GIT_BRANCH}
-#      git_commit_id: ${CICD_GIT_COMMIT}
-#      verbose: true
-#    envFrom:
-#    - sourceName: webinspect
-#      sourceKey: wi_base_url
-#      targetKey: wi_base_url
-#    - sourceName: api-origin
-#      sourceKey: username
-#      targetKey: api_username
-#    - sourceName: api-origin
-#      sourceKey: password
-#      targetKey: api_password
-#    - sourceName: api-origin
-#      sourceKey: api-origin
-#      targetKey: api_origin
 notification: {}
