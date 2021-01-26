@@ -26,7 +26,8 @@ parser.add_argument('task')
 
 
 class Root(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return "Hello World!"
 
 
