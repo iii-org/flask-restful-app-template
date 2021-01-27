@@ -35,7 +35,7 @@ stages:
         web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         checkmarx.enabled: true
         sonarqube.enabled: true
-        newman.enabled: false
+        newman.enabled: true
         webinspect.enabled: false
 
 notification: {}
