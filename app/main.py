@@ -34,6 +34,8 @@ class Root(Resource):
 #   show a single todo item and lets you delete them
 class Todo(Resource):
     def get(self, todo_id):
+        # this will fail
+        assert_false = 1 / 0
         abort_if_todo_doesnt_exist(todo_id)
         return TODOS[todo_id]
 
