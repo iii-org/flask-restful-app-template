@@ -51,7 +51,6 @@ class Todo(Resource):
 
 class GetTodo(Resource):
     def post(self):
-        not_exist_fun()
         print(reqparse.request.values.to_dict())
         parser.add_argument('id')
         args = parser.parse_args()
@@ -85,6 +84,8 @@ api.add_resource(ServerInfo, '/serverinfo')
 api.add_resource(TodoList, '/todos')
 api.add_resource(GetTodo, '/gettodo')
 api.add_resource(Todo, '/todos/<string:todo_id>')
+
+    wrong_indent = 5
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
