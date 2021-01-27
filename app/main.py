@@ -86,8 +86,5 @@ api.add_resource(GetTodo, '/gettodo')
 api.add_resource(Todo, '/todos/<string:todo_id>')
 
 
-b = 5 + 'b'
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

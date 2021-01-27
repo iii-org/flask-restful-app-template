@@ -33,7 +33,7 @@ stages:
         web.type: flask
         web.image: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}
         web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
-        checkmarx.enabled: false
+        checkmarx.enabled: true
         sonarqube.enabled: true
         newman.enabled: false
         webinspect.enabled: false
