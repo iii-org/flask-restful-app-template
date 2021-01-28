@@ -25,6 +25,7 @@ stages:
       answers:
         harbor.host: "harbor71.iiidevops.org"
         # 基礎pipeline參數
+        pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         git.url: ${CICD_GIT_URL}
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: ${CICD_GIT_COMMIT}
@@ -36,6 +37,6 @@ stages:
         checkmarx.enabled: true
         sonarqube.enabled: true
         newman.enabled: true
-        webinspect.enabled: true
+        webinspect.enabled: false
 
 notification: {}
