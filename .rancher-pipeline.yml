@@ -14,13 +14,33 @@ stages:
       PLUGIN_MIRROR: "https://harbor71.iiidevops.org"
       PLUGIN_DEBUG: "true"
 
+# 掃描程式碼
+- name: Source scan
+  steps:
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:iii-dev-charts3-source-scan
+      version: 0.1.0
+      name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-source-scan
+      targetNamespace: ${CICD_GIT_REPO_NAME}
+      answers:
+        harbor.host: "harbor71.iiidevops.org"
+        # 基礎pipeline參數
+        pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
+        git.url: ${CICD_GIT_URL}
+        git.branch: ${CICD_GIT_BRANCH}
+        git.commitID: ${CICD_GIT_COMMIT}
+        git.repoName: ${CICD_GIT_REPO_NAME}
+        # web參數設定
+        checkmarx.enabled: true
+        sonarqube.enabled: true
+
 # 部屬使用者應用(app)
 - name: Deploy app-web
   steps:
   - applyAppConfig:
       catalogTemplate: cattle-global-data:iii-dev-charts3-web
       version: 0.2.1
-      name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+      name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-deploy
       targetNamespace: ${CICD_GIT_REPO_NAME}
       answers:
         harbor.host: "harbor71.iiidevops.org"
@@ -34,9 +54,6 @@ stages:
         web.type: flask
         web.image: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}
         web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
-        checkmarx.enabled: true
-        sonarqube.enabled: true
         newman.enabled: true
         webinspect.enabled: false
-
 notification: {}
