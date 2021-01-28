@@ -76,9 +76,7 @@ class ServerInfo(Resource):
         return {"serverInfo": "flask api v2 is working"}
 
 
-##
-## Actually setup the Api resource routing here
-##
+# Actually setup the Api resource routing here
 api.add_resource(Root, '/')
 api.add_resource(ServerInfo, '/serverinfo')
 api.add_resource(TodoList, '/todos')
