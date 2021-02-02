@@ -1,4 +1,4 @@
-#stages:
+stages:
 #- name: Build--api server image
 #  steps:
 #  - publishImageConfig:
