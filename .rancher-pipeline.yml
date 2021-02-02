@@ -31,7 +31,7 @@ stages:
         # web參數設定
         web.type: flask
         web.imageTag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
-        newman.enabled: false
+        newman.enabled: true
         webinspect.enabled: false
 
 ## 掃描程式碼
@@ -49,7 +49,7 @@ stages:
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: "${CICD_GIT_COMMIT}"
         git.repoName: ${CICD_GIT_REPO_NAME}
-        checkmarx.enabled: false
-        sonarqube.enabled: false
+        checkmarx.enabled: true
+        sonarqube.enabled: true
 
 notification: {}
