@@ -26,9 +26,9 @@ stages:
         harbor.host: "harbor71.iiidevops.org"
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         git.url: ${CICD_GIT_URL}
-        git.branch: ${CICD_GIT_BRANCH}
+        git.branch: "${CICD_GIT_BRANCH}"
         git.commitID: "${CICD_GIT_COMMIT}"
-        git.repoName: ${CICD_GIT_REPO_NAME}
+        git.repoName: "${CICD_GIT_REPO_NAME}"
         # web參數設定
         web.type: flask
         web.imageTag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
@@ -50,9 +50,9 @@ stages:
         # 基礎pipeline參數
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         git.url: ${CICD_GIT_URL}
-        git.branch: ${CICD_GIT_BRANCH}
+        git.branch: "${CICD_GIT_BRANCH}"
         git.commitID: "${CICD_GIT_COMMIT}"
-        git.repoName: ${CICD_GIT_REPO_NAME}
+        git.repoName: "${CICD_GIT_REPO_NAME}"
         checkmarx.enabled: true
         checkmarx.runnerVersion: latest
         sonarqube.enabled: true
