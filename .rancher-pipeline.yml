@@ -25,6 +25,7 @@ stages:
       answers:
         harbor.host: "harbor71.iiidevops.org"
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
+        git.url: ${CICD_GIT_URL}
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: "${CICD_GIT_COMMIT}"
         git.repoName: ${CICD_GIT_REPO_NAME}
@@ -46,6 +47,7 @@ stages:
         harbor.host: "harbor71.iiidevops.org"
         # 基礎pipeline參數
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
+        git.url: ${CICD_GIT_URL}
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: "${CICD_GIT_COMMIT}"
         git.repoName: ${CICD_GIT_REPO_NAME}
