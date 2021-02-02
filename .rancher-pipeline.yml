@@ -1,18 +1,18 @@
 stages:
-#- name: Build--api server image
-#  steps:
-#  - publishImageConfig:
-#      dockerfilePath: ./app/Dockerfile
-#      buildContext: .
-#      tag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}:${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
-#      pushRemote: true
-#      registry: harbor71.iiidevops.org
-#    env:
-#      PLUGIN_INSECURE: "true"
-#      PLUGIN_MTU: "1000"
-#      PLUGIN_BUILD_ARGS: "--progress=tty --network=host"
-#      PLUGIN_MIRROR: "https://harbor71.iiidevops.org"
-#      PLUGIN_DEBUG: "true"
+- name: Build--api server image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./app/Dockerfile
+      buildContext: .
+      tag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
+      pushRemote: true
+      registry: harbor71.iiidevops.org
+    env:
+      PLUGIN_INSECURE: "true"
+      PLUGIN_MTU: "1000"
+      PLUGIN_BUILD_ARGS: "--progress=tty --network=host"
+      PLUGIN_MIRROR: "https://harbor71.iiidevops.org"
+      PLUGIN_DEBUG: "true"
 
 # 部屬使用者應用(app)
 - name: Deploy app-web
@@ -30,8 +30,7 @@ stages:
         git.repoName: ${CICD_GIT_REPO_NAME}
         # web參數設定
         web.type: flask
-        web.image: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}
-        web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
+        web.imageTag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
         newman.enabled: true
         webinspect.enabled: false
 
