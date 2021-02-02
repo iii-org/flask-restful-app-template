@@ -34,7 +34,6 @@ stages:
         web.tag: ${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         newman.enabled: true
         webinspect.enabled: false
-notification: {}
 
 ## 掃描程式碼
 - name: Source scan
@@ -54,3 +53,4 @@ notification: {}
         checkmarx.enabled: true
         sonarqube.enabled: true
 
+notification: {}
