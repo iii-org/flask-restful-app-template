@@ -26,7 +26,6 @@ stages:
         harbor.host: "harbor71.iiidevops.org"
         # 基礎pipeline參數
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
-        git.url: ${CICD_GIT_URL}
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: ${CICD_GIT_COMMIT}
         git.repoName: ${CICD_GIT_REPO_NAME}
@@ -38,14 +37,12 @@ stages:
   steps:
   - applyAppConfig:
       catalogTemplate: cattle-global-data:ro-chart-web
-      version: 0.2.1
+      version: 0.3.0
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
       targetNamespace: ${CICD_GIT_REPO_NAME}
       answers:
         harbor.host: "harbor71.iiidevops.org"
-        # 基礎pipeline參數
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
-        git.url: ${CICD_GIT_URL}
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: ${CICD_GIT_COMMIT}
         git.repoName: ${CICD_GIT_REPO_NAME}
