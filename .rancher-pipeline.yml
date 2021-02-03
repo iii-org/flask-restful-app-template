@@ -53,9 +53,9 @@ stages:
         git.branch: "${CICD_GIT_BRANCH}"
         git.commitID: "${CICD_GIT_COMMIT}"
         git.repoName: "${CICD_GIT_REPO_NAME}"
-        checkmarx.enabled: true
+        checkmarx.enabled: false
         checkmarx.runnerVersion: latest
-        sonarqube.enabled: true
+        sonarqube.enabled: false
         sonarqube.runnerVersion: latest
 
 notification: {}
