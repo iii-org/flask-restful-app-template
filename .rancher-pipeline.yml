@@ -24,6 +24,7 @@ stages:
       targetNamespace: ${CICD_GIT_REPO_NAME}
       answers:
         harbor.host: "harbor71.iiidevops.org"
+        ingress.externalHost: "ingress71.iiidevops.org"
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         git.url: ${CICD_GIT_URL}
         git.branch: "${CICD_GIT_BRANCH}"
@@ -32,9 +33,9 @@ stages:
         # web參數設定
         web.type: flask
         web.imageTag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
-        newman.enabled: true
+        newman.enabled: false
         newman.runnerVersion: latest
-        webinspect.enabled: false
+        webinspect.enabled: true
         webinspect.runnerVersion: latest
 
 ## 掃描程式碼
