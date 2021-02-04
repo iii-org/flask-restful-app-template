@@ -18,7 +18,7 @@ stages:
 - name: Deploy app-web
   steps:
   - applyAppConfig:
-      catalogTemplate: cattle-global-data:ro-chart-web
+      catalogTemplate: cattle-global-data:iii-dev-charts3-web
       version: 0.3.0
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
       targetNamespace: ${CICD_GIT_REPO_NAME}
@@ -42,7 +42,7 @@ stages:
 - name: Source scan
   steps:
   - applyAppConfig:
-      catalogTemplate: cattle-global-data:ro-chart-source-scan
+      catalogTemplate: cattle-global-data:iii-dev-charts3-source-scan
       version: 0.1.0
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-scan
       targetNamespace: ${CICD_GIT_REPO_NAME}
@@ -58,5 +58,3 @@ stages:
         checkmarx.runnerVersion: latest
         sonarqube.enabled: true
         sonarqube.runnerVersion: latest
-
-notification: {}
