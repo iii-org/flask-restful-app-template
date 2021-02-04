@@ -28,7 +28,8 @@ stages:
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         git.url: ${CICD_GIT_URL}
         git.branch: "${CICD_GIT_BRANCH}"
-        git.commitID: "${CICD_GIT_COMMIT}"
+        git.commitID: "!!string 1234567"
+#        git.commitID: "${CICD_GIT_COMMIT}"
         git.repoName: "${CICD_GIT_REPO_NAME}"
         # web參數設定
         web.type: flask
